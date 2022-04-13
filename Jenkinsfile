@@ -24,7 +24,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'jmeter --version'
+                echo 'jmeter --version'
             }
         }
         
