@@ -11,11 +11,22 @@
 //     }
 // }
 
-node {
-    docker.image('jmeter').withRun('-e "PATH=/usr/local/src/apache-jmeter-5.4.3/bin:$PATH" -d -p 1099:1099') { c ->
-        docker.image('jmeter') {
- 
-            sh 'ehco jk'
+pipeline {
+    agent {
+        docker {
+            image 'jmeter'
+            args '-p 1099:1099'
         }
+    }
+    environment {
+        CI = 'true'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'jmeter --version'
+            }
+        }
+        
     }
 }
