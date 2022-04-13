@@ -15,7 +15,7 @@ pipeline {
     agent {
         docker {
             image 'jmeter'
-            args '-e PATH=/usr/local/src/apache-jmeter-5.4.3/bin:$PATH -it -p 1095:1099 —name jmeter -v /usr/local/src/docker_jmeter/apache-jmeter-5.4.3:/usr/local/src'
+            args '-e "PATH=/usr/local/src/apache-jmeter-5.4.3/bin:$PATH" -it -p 1095:1099 —name jmeter -v "/usr/local/src/docker_jmeter/apache-jmeter-5.4.3:/usr/local/src"'
         }
     }
     environment {
