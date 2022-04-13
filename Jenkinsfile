@@ -12,11 +12,12 @@
 // }
 
 pipeline {
-    agent {
-        docker {
-            image 'jmeter'
-            args '-e "PATH=/usr/local/src/apache-jmeter-5.4.3/bin:$PATH" -it -p 1099:1099 —name jmeter -v "/usr/local/src/docker_jmeter/apache-jmeter-5.4.3:/usr/local/src"'
-        }
+    agent any 
+    // {
+        // docker {
+        //     image 'jmeter'
+        //     args '-e "PATH=/usr/local/src/apache-jmeter-5.4.3/bin:$PATH" -it -p 1099:1099 —name jmeter -v "/usr/local/src/docker_jmeter/apache-jmeter-5.4.3:/usr/local/src"'
+        // }
     }
     environment {
         CI = 'true'
